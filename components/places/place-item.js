@@ -5,7 +5,7 @@ import ArrowRightIcon from '../icons/arrow-right-icon';
 import classes from './place-item.module.css';
 
 function PlaceItem({ title, image, location, rating, id }) {
-  const exploreLink = `/events/${id}`;
+  const exploreLink = `/places/${id}`;
   return (
     <li className={classes.item}>
       <img src={'/images/' + image} alt={title} />

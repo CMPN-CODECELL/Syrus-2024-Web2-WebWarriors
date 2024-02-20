@@ -6,8 +6,9 @@
   padding: 1rem 10%;
   height: 5rem;
   background-color: #202020;
-  position:fixed;
+  position: fixed;
   top: 0px;
+  z-index: 2;
 }
 
 .logo {

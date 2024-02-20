@@ -25,17 +25,17 @@ function PlacesSearch(props) {
           <label htmlFor='type'>Type</label>
           <select id='type' ref={typeInputRef}>
             <option value='nature'>Nature</option>
+            <option value='religious'>Religious</option>
             <option value='beach'>Beach</option>
             <option value='monument'>Monument</option>
-            <option value='religious'>Religious</option>
           </select>
         </div>
         <div className={classes.control}>
           <label htmlFor='temp'>Temperature</label>
           <select id='temp' ref={tempInputRef}>
             <option value='hot'>Hot</option>
-            <option value='cold'>Cold</option>
             <option value='temperate'>Temperate</option>
+            <option value='cold'>Cold</option>
           </select>
         </div>
         <div className={classes.control}>

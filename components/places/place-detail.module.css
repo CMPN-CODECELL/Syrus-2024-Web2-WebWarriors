@@ -1,0 +1,39 @@
+.detail {
+  text-align: center;
+}
+
+.detail img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.detail h1 {
+  font-size: 28px;
+}
+
+.detail address {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.detail p {
+  margin: 25px auto;
+  width: 50%;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 480px) {
+  .detail h1 {
+    font-size: 27px;
+  }
+  .detail address {
+    font-size: 18px;
+  }
+  .detail p {
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0px;
+  }
+}

@@ -1,11 +1,11 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 
 import PlacesSearch from '@/components/places/places-search';
 import PlaceList from '@/components/places/place-list';
 import { getPlaces } from '@/lib/db';
 
 function HomePage({ places }) {
-  const findPlacesHandler = (type, temp) => {};
+  const findPlacesHandler = (type, temp, budget) => {};
 
   return (
     <Fragment>

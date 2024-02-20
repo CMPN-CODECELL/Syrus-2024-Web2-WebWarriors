@@ -29,3 +29,27 @@ export async function getPlaces() {
   client.close();
   return places;
 }
+
+export async function getPlaceById(id) {
+  const client = await connectToDatabase();
+  const db = client.db();
+  const place = await db.collection('places').findOne({ id: id });
+  client.close();
+
+  return place;
+}
+
+export async function getPlacePaths() {
+  const client = await connectToDatabase();
+  const db = client.db();
+  const places = await db
+    .collection('places')
+    .find({}, { projection: { id: 1 } })
+    .toArray();
+  const placePaths = places.map(place => ({
+    params: { placeId: place.id },
+  }));
+  client.close();
+
+  return placePaths;
+}
