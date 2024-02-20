@@ -4,17 +4,6 @@ import PlacesSearch from '@/components/places/places-search';
 import PlaceList from '@/components/places/place-list';
 import { getPlaces } from '@/lib/db';
 
-/*
-const places = [
-  {
-    id: 'p1',
-    title: 'Taj Mahal',
-    image: 'taj-mahal.jpg',
-    location: 'Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh',
-    rating: 5,
-  },
-];
-*/
 function HomePage({ places }) {
   const findPlacesHandler = (type, temp) => {};
 
@@ -37,5 +26,3 @@ export const getStaticProps = async () => {
 };
 
 export default HomePage;
-
-// Pankajtripfinder
