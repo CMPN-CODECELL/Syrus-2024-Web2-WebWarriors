@@ -24,7 +24,7 @@ function ImagePicker({ label, name, onChange }) {
       setPickedImage(fileReader.result);
     };
     fileReader.readAsDataURL(file);
-    onChange(file.name);
+    onChange(file);
   };
 
   return (

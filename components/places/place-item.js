@@ -8,7 +8,7 @@ function PlaceItem({ title, image, location, rating, id }) {
   const exploreLink = `/places/${id}`;
   return (
     <li className={classes.item}>
-      <img src={'/images/' + image} alt={title} />
+      <img src={`https://tripfinder.s3.amazonaws.com/${image}`} alt={title} />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{title}</h2>

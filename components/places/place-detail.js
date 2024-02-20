@@ -10,7 +10,7 @@ function PlaceDetail({ place }) {
         <img src={image} alt={title} />
       ) : (
         <Image
-          src={`/images/${image}`}
+          src={`https://tripfinder.s3.amazonaws.com/${image}`}
           alt={title}
           width={640}
           height={360}

@@ -1,4 +1,9 @@
 import { MongoClient } from 'mongodb';
+import { S3 } from '@aws-sdk/client-s3';
+
+const s3 = new S3({
+  region: 'eu-north-1',
+});
 
 export async function connectToDatabase() {
   const client = await MongoClient.connect(
@@ -10,6 +15,19 @@ export async function connectToDatabase() {
 
 export async function insertPlace(client, place) {
   const db = client.db();
+  console.log(place);
+  const extension = place.image.name.split('.').pop();
+  const fileName = `${place.id}.${extension}`;
+
+  const bufferedImage = await place.image.arrayBuffer();
+  s3.putObject({
+    Bucket: 'tripfinder',
+    Key: fileName,
+    Body: Buffer.from(bufferedImage),
+    ContentType: place.image.type,
+  });
+
+  place.image = fileName;
   const result = await db.collection('places').insertOne(place);
 
   return result;
@@ -25,6 +43,9 @@ export async function getPlaces() {
     image: place.image,
     location: place.location,
     rating: place.rating,
+    type: place.type,
+    temp: place.temp,
+    budget: place.budget,
   }));
   client.close();
   return places;

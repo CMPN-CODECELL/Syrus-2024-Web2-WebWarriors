@@ -27,13 +27,13 @@ function PlaceForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     console.log(formData);
-    /*fetch('/api/add-place', {
+    fetch('/api/add-place', {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {
         'Content-Type': 'application/json',
       },
-    });*/
+    });
   };
 
   return (
