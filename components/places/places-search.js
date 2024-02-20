@@ -24,7 +24,7 @@ function PlacesSearch(props) {
         <div className={classes.control}>
           <label htmlFor='type'>Type</label>
           <select id='type' ref={typeInputRef}>
-            <option value='adventure'>Adventure</option>
+            <option value='nature'>Nature</option>
             <option value='beach'>Beach</option>
             <option value='monument'>Monument</option>
             <option value='religious'>Religious</option>
