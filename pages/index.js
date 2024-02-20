@@ -2,7 +2,9 @@ import { Fragment } from 'react';
 
 import PlacesSearch from '@/components/places/places-search';
 import PlaceList from '@/components/places/place-list';
+import { getPlaces } from '@/lib/db';
 
+/*
 const places = [
   {
     id: 'p1',
@@ -12,8 +14,8 @@ const places = [
     rating: 5,
   },
 ];
-
-function HomePage() {
+*/
+function HomePage({ places }) {
   const findPlacesHandler = (type, temp) => {};
 
   return (
@@ -23,6 +25,16 @@ function HomePage() {
     </Fragment>
   );
 }
+
+export const getStaticProps = async () => {
+  const places = await getPlaces();
+
+  return {
+    props: {
+      places,
+    },
+  };
+};
 
 export default HomePage;
 
