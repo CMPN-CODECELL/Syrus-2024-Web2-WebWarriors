@@ -48,7 +48,9 @@ function HomePage({ places }) {
   const findPlacesHandler = (type, temp, budget) => {
     const updatedPlaces = places.filter(
       place =>
-        place.type === type && place.temp === temp && place.budget === budget
+        place.type.toLowerCase() === type &&
+        place.temp.toLowerCase() === temp &&
+        place.budget.toLowerCase() === budget
     );
     setFilteredPlaces(updatedPlaces);
   };
