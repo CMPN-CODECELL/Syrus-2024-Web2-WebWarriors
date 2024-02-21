@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import ImagePicker from '@/components/ui/image-picker';
 import PlaceFormSubmit from '@/components/ui/place-form-submit';
+import { useRouter } from 'next/router';
 
 import classes from './place-form.module.css';
 
 function PlaceForm() {
+  const { push } = useRouter();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -13,7 +15,7 @@ function PlaceForm() {
     temp: '',
     budget: '',
     rating: 5,
-    image: '',
+    image: {},
   });
 
   const handleChange = e => {
@@ -23,10 +25,8 @@ function PlaceForm() {
   const handleImageChange = image => {
     setFormData({ ...formData, image });
   };
-
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
     fetch('/api/add-place', {
       method: 'POST',
       body: JSON.stringify(formData),
@@ -34,6 +34,7 @@ function PlaceForm() {
         'Content-Type': 'application/json',
       },
     });
+    push('/places');
   };
 
   return (

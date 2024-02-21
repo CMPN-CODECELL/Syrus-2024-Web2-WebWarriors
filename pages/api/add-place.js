@@ -1,11 +1,11 @@
 import { connectToDatabase, insertPlace } from '@/lib/db';
 
 async function handler(req, res) {
+  console.log(req.body);
   if (req.method !== 'POST') return;
 
   const { title, image, location, description, type, temp, budget, rating } =
     req.body;
-
   const id = title.trim().toLowerCase().replaceAll(' ', '-');
   const newPlace = {
     id,
@@ -16,9 +16,8 @@ async function handler(req, res) {
     type,
     temp,
     budget,
-    rating,
+    rating: +rating,
   };
-
   const client = await connectToDatabase();
   await insertPlace(client, newPlace);
   res.status(201).json({ message: 'Added place.', place: newPlace });

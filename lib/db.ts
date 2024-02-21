@@ -15,19 +15,16 @@ export async function connectToDatabase() {
 
 export async function insertPlace(client, place) {
   const db = client.db();
-  console.log(place);
-  const extension = place.image.name.split('.').pop();
-  const fileName = `${place.id}.${extension}`;
 
-  const bufferedImage = await place.image.arrayBuffer();
-  s3.putObject({
-    Bucket: 'tripfinder',
-    Key: fileName,
-    Body: Buffer.from(bufferedImage),
-    ContentType: place.image.type,
-  });
+  // const bufferedImage = await place.image.arrayBuffer();
+  // s3.putObject({
+  //   Bucket: 'tripfinder',
+  //   Key: place.image.name,
+  //   Body: Buffer.from(bufferedImage),
+  //   ContentType: place.image.type,
+  // });
 
-  place.image = fileName;
+  // place.image = place.image.name;
   const result = await db.collection('places').insertOne(place);
 
   return result;
@@ -48,7 +45,7 @@ export async function getPlaces() {
     budget: place.budget,
   }));
   client.close();
-  return places;
+  return places.reverse();
 }
 
 export async function getPlaceById(id) {

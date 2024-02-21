@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 
 import PlacesSearch from '@/components/places/places-search';
 import PlaceList from '@/components/places/place-list';
@@ -12,7 +12,7 @@ const initial_data = [
     location: 'Uttar Pradesh',
     rating: 4,
     type: 'religious',
-    temperature: 'temperate',
+    temp: 'temperate',
     budget: 'affordable',
     description:
       'One of the oldest continuously inhabited cities in the world, known for its spiritual significance and the ghats along the Ganges River.',
@@ -24,7 +24,7 @@ const initial_data = [
     location: 'Uttarakhand',
     rating: 4,
     type: 'adventure',
-    temperature: 'temperate',
+    temp: 'temperate',
     budget: 'affordable',
     description:
       'A popular destination for yoga, meditation, and adventure sports like white-water rafting and trekking.',
@@ -36,7 +36,7 @@ const initial_data = [
     location: 'Rajasthan',
     rating: 4,
     type: 'monument',
-    temperature: 'hot',
+    temp: 'hot',
     budget: 'affordable',
     description:
       "Known as the 'Pink City' for its distinctive pink-colored buildings, famous for its forts, palaces, and vibrant markets.",
